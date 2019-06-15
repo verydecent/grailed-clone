@@ -28,6 +28,19 @@ class SignUpForm extends Component {
 
   onSubmit = event => {
     console.log("onSubmit");
+    const { username, email, passwordOne } = this.state;
+
+    this.props.firebase
+      .doCreateUserWithEmailAndPassword(email, passwordOne)
+      .then(authUser => {
+        this.setState({ ...INITIAL_STATE });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+    
+      // Prevent refreshing nature of submitting a Form
+      event.preventDefault();
   }
 
   onChange = event => {
