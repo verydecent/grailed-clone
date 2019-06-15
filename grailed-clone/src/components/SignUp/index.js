@@ -10,6 +10,15 @@ const SignUpPage = () => (
   </div>
 );
 
+// Why do we use this state? So we can refer back to it later when we need to reset the state after submitting a form 
+const INITIAL_STATE = {
+  username: '',
+  email: '',
+  passwordOne: '',
+  passwordTwo: '',
+  error: null,
+};
+
 class SignUpForm extends Component {
   constructor(props) {
     super(props);
