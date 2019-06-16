@@ -13,6 +13,8 @@ import AdminPage from '../Admin';
 import * as ROUTES from '../../constants/routes';
 import { withFirebase } from '../Firebase';
 
+import { AuthUserContext } from '../Session';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ class App extends Component {
     });
   }
   componentWillUnmount() {
-    this.listender();
+    this.listener();
   }
   render() {
     return (
